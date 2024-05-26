@@ -1,5 +1,4 @@
 import { calc } from "./test"
 
 console.log('hello world')
-
-console.log(calc(5, 2)) 
+console.log(calc(5, 20))   
