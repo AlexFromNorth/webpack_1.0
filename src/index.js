@@ -1,4 +1,3 @@
-import { calc } from "./test"
+import { calc } from "./test";
 
-console.log('hello world')
-console.log(calc(5, 20))   
+console.log("hello world"), console.log(calc(5, 20));
