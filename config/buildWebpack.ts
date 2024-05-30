@@ -1,4 +1,3 @@
-import path from "path";
 import webpack from "webpack";
 import { buildDevServer } from "./buildDevServer";
 import { buildLoaders } from "./buildLoaders";
@@ -15,7 +14,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
     entry: options.paths.entry,
     output: {
       path: options.paths.output,
-      filename: `[name].[contenthash].js`,
+      filename: isDev ? `[name].js` : `[name].[contenthash].js`,
       clean: true,
     },
     plugins: buildPlugins(options),
@@ -25,8 +24,16 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
     resolve: buildResolvers(options),
     devtool: isDev ? "inline-source-map" : false,
     devServer: isDev ? buildDevServer(options) : undefined,
-    optimization: {
-      runtimeChunk: "single",
-    },
+    optimization: isProd
+      ? {
+          minimize: true,
+          minimizer: [
+            `...`, // Оставляем стандартные минимизаторы
+          ],
+          runtimeChunk: "single",
+        }
+      : {
+          runtimeChunk: "single",
+        },
   };
 }
