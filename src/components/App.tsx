@@ -11,7 +11,7 @@ export const App = () => {
     <div>
       <h1>Hello world</h1>
       <button className={classes.button} onClick={()=>{math(1)}}><span>knock +</span></button>
-      <button onClick={()=>{math(-1)}}><span>knock -</span></button>
+      <button className={classes.test} onClick={()=>{math(-1)}}><span>knock -</span></button>
       <p>{count}</p>
       <p>123</p>
     </div>
