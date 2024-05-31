@@ -15,8 +15,8 @@ export function buildPlugins({
       template: paths.html,
     }),
     new MiniCssExtractPlugin({
-      filename: isDev ? "css/[name].css" : "css/[name].[contenthash:8].css",
-      chunkFilename: isDev ? "[id].css" : "css/[id].[contenthash:8].css",
+      filename: isDev ? "css/[name].[contenthash:8].css" : "css/[name].[contenthash:8].css",
+      chunkFilename: isDev ? "css/[id].[contenthash:8].css" : "css/[id].[contenthash:8].css",
     }),
   ];
 
