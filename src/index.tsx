@@ -1,6 +1,9 @@
 import { App } from "./components/App";
 import { createRoot } from "react-dom/client";
-import React from "react";
+import React, { Suspense } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { ShopLazy } from "./pages/shop/ShopLazy";
+import { AboutLazy } from "./pages/about/AboutLazy";
 
 const root = document.querySelector("#root");
 
@@ -10,4 +13,24 @@ if (!root) {
 
 const container = createRoot(root);
 
-container.render(<App />);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/about',
+        // <Suspense> - отоброжается, пока грузится ленивая компонента
+        element: <Suspense fallback={'Loading...'}><AboutLazy/></Suspense>
+      },
+      {
+        path: '/shop',
+        element: <Suspense fallback={'Loading...'}><ShopLazy/></Suspense>
+      },
+    ]
+  }
+])
+
+container.render(
+  <RouterProvider router={router} />
+);
