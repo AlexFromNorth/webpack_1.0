@@ -12,7 +12,8 @@ export const App = () => {
   return (
     <div>
       <div>
-        {AvatarPng}
+        <img src={AvatarPng} alt=""  height='500vh'/>
+        
       </div>
       <Link to={'about'}>about</Link>
       <br />
