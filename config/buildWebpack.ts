@@ -11,6 +11,9 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
 
   return {
     mode: options.mode ?? "development",
+    // public: {
+    //   path: options.paths.public,
+    // },
     entry: options.paths.entry,
     output: {
       path: options.paths.output,
