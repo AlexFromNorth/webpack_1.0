@@ -13,8 +13,8 @@ export const App = () => {
 
   return (
     <div>
-      {__PLATFORM__ === "desktop" ? <div>ISDESKTOPPLATFORM</div> : <div>ISMOBILEPLATFORM</div>}
-      <h1>Platform={__PLATFORM__}</h1>
+      {/* {__PLATFORM__ === "desktop" ? <div>ISDESKTOPPLATFORM</div> : <div>ISMOBILEPLATFORM</div>} */}
+      {/* <h1>Platform={__PLATFORM__}</h1> */}
       <div>
         <img src={AvatarPng} alt=""  height='500vh'/>
       </div>

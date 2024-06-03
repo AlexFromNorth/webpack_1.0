@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { Configuration, DefinePlugin, ProgressPlugin } from "webpack";
 import { BuildOptions } from "./types/types";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
 
 export function buildPlugins({
   mode,
@@ -28,6 +29,7 @@ export function buildPlugins({
 
   if (isDev) {
     plugins.push(new ProgressPlugin());
+    plugins.push(new ForkTsCheckerWebpackPlugin())
   }
   if (isProd) {
     analyzer && plugins.push(new BundleAnalyzerPlugin());
