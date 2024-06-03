@@ -9,12 +9,16 @@ export const App = () => {
 
   const math = (number:number) => setCount(prev => prev + number )
 
+
+
   return (
     <div>
+      {__PLATFORM__ === "desktop" ? <div>ISDESKTOPPLATFORM</div> : <div>ISMOBILEPLATFORM</div>}
+      <h1>Platform={__PLATFORM__}</h1>
       <div>
         <img src={AvatarPng} alt=""  height='500vh'/>
-        
       </div>
+
       <Link to={'about'}>about</Link>
       <br />
       <Link to={'/shop'}>shop</Link>
